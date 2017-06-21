@@ -1,0 +1,15 @@
+{
+	"index.html": {
+		"resources": [
+			"js/script.js",
+			"css/style.css",
+			"css/reset.css",
+			"img/renzhen.jpg",
+			"img/bg.png",
+			"js/message.js",
+			"js/util.js",
+			"js/lib/socket.io.js",
+			"js/logic.js"
+		]
+	}
+}
