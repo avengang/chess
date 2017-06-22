@@ -1,4 +1,4 @@
-var socket = io.connect('http://192.168.0.7:8080/');
+var socket = io.connect('http://112.74.199.52:8080/');
 var user = {
 	isBlack: true,
 	selectChess: null,
@@ -77,5 +77,14 @@ console.log(data);
 		if(!data.isSelect) {
 			user.myTurn = !user.myTurn;
 		}
+	}, function(isBlackSuccess) {
+		
+		
 	});
+});
+socket.on("win", function(data) {
+	alertFn("你赢了");
+});
+socket.on("fail", function(data) {
+	alertFn("你输了");
 });
