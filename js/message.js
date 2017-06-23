@@ -4,9 +4,6 @@ var user = {
 	selectChess: null,
 	myTurn: false
 };
-var mountainArr = [];//能上山的列表
-var waterArr = [];//等淌水的列表
-var holeArr = [];//能进洞的列表
 var chessInfo = [];
 var friendName = "";
 function login() {
@@ -60,7 +57,6 @@ socket.on("matchError", function(data) {
 });
 socket.on("init", function(data) {
 
-console.log(data);
 	document.getElementById("choose").style.display = "none";
 	document.getElementById("game").style.display = "block";
 	user = data.user;
@@ -70,21 +66,20 @@ console.log(data);
 });
 socket.on("gaming", function(data) {
 	
-console.log(data);
 	user.myTurn = data.myTurn;
 	gaming(chessInfo, data.index, data.gameUser, data.i, data.j, function () {
 
 		if(!data.isSelect) {
 			user.myTurn = !user.myTurn;
 		}
-	}, function(isBlackSuccess) {
-		
-		
-	});
+	}, function() {});
 });
 socket.on("win", function(data) {
+	
 	alertFn("你赢了");
 });
 socket.on("fail", function(data) {
+	
 	alertFn("你输了");
 });
+
